@@ -122,4 +122,4 @@ Content-Type: application/json
 
 *   Aplikacja jest uruchomiona w trybie debugowania (`debug=True`). W środowisku produkcyjnym należy tę opcję wyłączyć.
 *   **W środowisku produkcyjnym zamiast wbudowanego serwera Flask należy użyć serwera WSGI, takiego jak Gunicorn lub uWSGI.**
-* Logi aplikacji informują o wczytywaniu modeli i wykonaniu predykcji (wyświetlając "JESTEM1" i "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA").
+* Logi aplikacji informują o wczytywaniu modeli i wykonaniu predykcji.
