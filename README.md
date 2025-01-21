@@ -80,3 +80,46 @@ Modele zostały wytrenowane z użyciem biblioteki **PyCaret 3.3.2** oraz **sciki
 Aplikacja udostępnia jeden endpoint `/predict`, który przyjmuje żądania POST z danymi pacjenta w formacie JSON.
 
 **Przykładowe żądanie:**
+
+```
+POST [usunięto nieprawidłowy URL]
+Content-Type: application/json
+
+{
+ "Sex": "Female",
+ "GeneralHealth": "Very good",
+ "SleepHours": 9.0,
+ "RemovedTeeth": "None of them",
+ "HadStroke": "No",
+ "HadCOPD": "No",
+ "HadDiabetes": "No",
+ "DifficultyWalking": "No",
+ "SmokerStatus": "Former smoker",
+ "ChestScan": "No",
+ "AgeCategory": "Age 65 to 69",
+ "BMI": 27.99,
+ "AlcoholDrinkers": "No"
+}
+```
+
+**Przykładowa odpowiedź:**
+
+```json
+{
+  "prediction": "No",
+  "weighted_score": 0.3334,
+  "mean_probability_of_that_class": 0.8765
+}
+```
+
+**Opis odpowiedzi:**
+
+*   `prediction`: Ostateczna predykcja ("Yes" lub "No").
+*   `weighted_score`: Wartość ważonej średniej predykcji z trzech modeli.
+*   `mean_probability_of_that_class`: Uśrednione prawdopodobieństwo przynależności do przewidzianej klasy.
+
+## Uwagi
+
+*   Aplikacja jest uruchomiona w trybie debugowania (`debug=True`). W środowisku produkcyjnym należy tę opcję wyłączyć.
+*   **W środowisku produkcyjnym zamiast wbudowanego serwera Flask należy użyć serwera WSGI, takiego jak Gunicorn lub uWSGI.**
+* Logi aplikacji informują o wczytywaniu modeli i wykonaniu predykcji (wyświetlając "JESTEM1" i "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA").
